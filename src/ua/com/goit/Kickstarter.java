@@ -1,6 +1,7 @@
 package ua.com.goit;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Kickstarter {
 	private Categories categories;	
@@ -9,7 +10,7 @@ public class Kickstarter {
 	}
 
 
-
+	
 	public static void main(String[] args) {
 		Category category1 = new Category("Photo");
 		Category category2 = new Category("Video");
@@ -35,6 +36,12 @@ public class Kickstarter {
 		System.out.println();
 		System.out.println("Выберите категорию:");
 		System.out.println(Arrays.toString(categories.getCategories()));
+		
+		Scanner scanner = new Scanner(System.in);
+		int categoryIndex = scanner.nextInt();
+		String categoryName=categories.getName(categoryIndex);
+		System.out.println("Вы выбрали категорию "+ categoryName);
+		
 	}
 
 
