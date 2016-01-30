@@ -18,17 +18,45 @@ public class Kickstarter {
 		
 		while(true){
 			
-		askCategory();
+			askCategory();
+			int categoryIndex = selectMenu();
+			Category category = chooseCategory(categoryIndex);
+			printProjects(category);
 		
-		int categoryIndex = selectMenu();
-		
-		Category category = chooseCategory(categoryIndex);
-		
-		printProjects(category);
-		
-		
+			while(true){
+				askProject();
+				int projectIndex = selectMenu();
+				Project project= chooseProject(projectIndex);
+				printPojectDetails(project);
+				
+			}
 		
 		}
+	}
+
+
+	private void askProject() {
+		//предлагаем выбрать категорию
+		System.out.println();
+		System.out.println("Выберите проект:");
+				
+	}
+
+
+	private void printPojectDetails(Project project) {
+		printProject(project);
+		System.out.println(project.getHistory());
+		System.out.println(project.getDemoVideo());
+		System.out.println(project.getQuenstionAnswers());
+		
+	}
+
+
+	private Project chooseProject(int projectIndex) {
+		Project project=projects.get(projectIndex);
+		System.out.println("Вы выбрали проект - \""+ project.getName()+"\"");
+		System.out.println("---------------------------------");
+		return project;
 	}
 
 
@@ -37,18 +65,21 @@ public class Kickstarter {
 		Project[] foundProgect = projects.getProjects(category);
 		
 		//выводим список проектов
-		for (Project project: foundProgect){
+		for (int index = 0; index < foundProgect.length; index++){
+			Project project = foundProgect[index];
+			System.out.print(index + " - ");
 			printProject(project);
 		}
 	}
 
 
 	private void printProject(Project project) {
-		System.out.println("Название проекта - " + project.getName());
+		System.out.println(project.getName());
 		System.out.println("Описание проекта - " + project.getDescription());
-		System.out.println("Сколько надо собрать - " + project.getAmount());
-		System.out.println("Сколько собрали - " + project.getExist());
-		System.out.println("Осталось дней - " + project.getDays());
+		System.out.print("Надо собрать - " + project.getAmount());
+		System.out.println(" за " + project.getDays() +" дней ");
+		System.out.println("Собрали - " + project.getExist());
+		
 		System.out.println("---------------------------------");
 	}
 
@@ -63,7 +94,7 @@ public class Kickstarter {
 
 	private Category chooseCategory(int categoryIndex) {
 		//Выводим категорию
-		Category category=categories.getName(categoryIndex);
+		Category category=categories.get(categoryIndex);
 		System.out.println("Вы выбрали категорию "+ category.getName());
 		System.out.println("---------------------------------");
 		return category;

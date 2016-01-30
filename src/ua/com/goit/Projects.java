@@ -27,5 +27,10 @@ public class Projects {
 		return result2;
 	}
 
+	public Project get(int projectIndex) {
+		// TODO Auto-generated method stub
+		return projects[projectIndex];
+	}
+
 	
 }

@@ -43,8 +43,22 @@ public Category getCategory() {
 	}
 
 	public int getExist() {
-		
 		return exist;
+	}
+
+	public String getHistory() {
+		// TODO Auto-generated method stub
+		return "тут будет история проектка";
+	}
+
+	public String getDemoVideo() {
+		// TODO Auto-generated method stub
+		return "http://inetshop.com.ua";
+	}
+
+	public String getQuenstionAnswers() {
+		// TODO Auto-generated method stub
+		return "Вопросы \nОтветы";
 	}
 
 
