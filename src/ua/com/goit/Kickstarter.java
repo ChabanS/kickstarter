@@ -20,13 +20,25 @@ public class Kickstarter {
 			
 			askCategory();
 			int categoryIndex = selectMenu();
+			if (categoryIndex < 0 || categories.getCategories().length<=categoryIndex){
+				System.out.println("Неверный индекс меню " + categoryIndex);
+				continue;
+			}
 			Category category = chooseCategory(categoryIndex);
 			Project[] foundProgect = projects.getProjects(category);
+			
+			
+			
+			
 			printProjects(foundProgect);
 		
 			while(true){
 				askProject();
 				int projectIndex = selectMenu();
+				if (projectIndex < 0 || foundProgect.length<=projectIndex){
+					System.out.println("Неверный индекс меню " + projectIndex);
+					continue;
+				}
 				Project project= foundProgect[projectIndex];
 				chooseProject(project);
 				printPojectDetails(project);
@@ -48,17 +60,15 @@ public class Kickstarter {
 		System.out.println(project.getHistory());
 		System.out.println(project.getDemoVideo());
 		System.out.println(project.getQuenstionAnswers());
+		System.out.println("---------------------------------");
 	}
 
 	private void chooseProject(Project project) {
-		//Project project=projects.get(project);
 		System.out.println("Вы выбрали проект - \""+ project.getName()+"\"");
 		System.out.println("---------------------------------");
-		//return project;
 	}
 
 	private void printProjects(Project[] foundProgect) {
-		
 		//выводим список проектов
 		for (int index = 0; index < foundProgect.length; index++){
 			Project project = foundProgect[index];
@@ -73,7 +83,6 @@ public class Kickstarter {
 		System.out.print("Надо собрать - " + project.getAmount());
 		System.out.println(" за " + project.getDays() +" дней ");
 		System.out.println("Собрали - " + project.getExist());
-		
 		System.out.println("---------------------------------");
 	}
 
