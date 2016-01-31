@@ -18,6 +18,10 @@ public class KickstarterRunner {
 		project1.setCategory(category2);
 		project2.setCategory(category2);
 		
+		project1.setHistory("История первого проектра");
+		project2.setHistory("История проекта второго.....");
+		
+		
 		
 		Projects projects = new Projects();
 		projects.add(project1);

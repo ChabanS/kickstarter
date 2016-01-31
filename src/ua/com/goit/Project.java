@@ -8,13 +8,17 @@ public class Project {
 	private Category category;
 	private String description;
 	private int exist;
+	private String history;
 	
+
+
 public Project(String name, int amount, int days, String description) {
 	this.name = name;
 	this.amount = amount;
 	this.days = days;
 	this.description = description;
 	this.exist = 0;
+	this.history = description;
 }
 
 public void setCategory(Category category) {
@@ -45,19 +49,19 @@ public Category getCategory() {
 	public int getExist() {
 		return exist;
 	}
-
+	
+	public void setHistory(String history) {
+		this.history = history;
+	}
 	public String getHistory() {
-		// TODO Auto-generated method stub
-		return "тут будет история проектка";
+		return history;
 	}
 
 	public String getDemoVideo() {
-		// TODO Auto-generated method stub
 		return "http://inetshop.com.ua";
 	}
 
 	public String getQuenstionAnswers() {
-		// TODO Auto-generated method stub
 		return "Вопросы \nОтветы";
 	}
 
