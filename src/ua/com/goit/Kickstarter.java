@@ -57,7 +57,10 @@ public class Kickstarter {
 		printProject(project);
 		System.out.println(project.getHistory());
 		System.out.println(project.getDemoVideo());
-		System.out.println(project.getQuenstionAnswers());
+		String quenstionAnswers = project.getQuenstionAnswers();
+		if(quenstionAnswers != null){
+		System.out.println(quenstionAnswers);
+		}
 		System.out.println("---------------------------------");
 	}
 

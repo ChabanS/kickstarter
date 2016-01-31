@@ -12,8 +12,8 @@ public class KickstarterRunner {
 		categories.add(category2);
 		categories.add(category3);
 		
-		Project project1 = new Project("Фильмы про програмирование", 1000, 15, "описание фильма");
-		Project project2 = new Project("Фильмы про танцы", 5000, 10, "описание фильма");
+		Project project1 = new Project("Фильмы про програмирование", 1000, 15, "описание фильма", "http://inetshop.com.ua");
+		Project project2 = new Project("Фильмы про танцы", 5000, 10, "описание фильма", "http://manuscura.com.ua");
 		
 		project1.setCategory(category2);
 		project2.setCategory(category2);
@@ -21,8 +21,8 @@ public class KickstarterRunner {
 		project1.setHistory("История первого проектра");
 		project2.setHistory("История проекта второго.....");
 		
-		project1.setDemoVideo("http://inetshop.com.ua");
-		project2.setDemoVideo("http://manuscura.com.ua");
+//		project1.setDemoVideo("http://inetshop.com.ua");
+//		project2.setDemoVideo("http://manuscura.com.ua");
 		
 		Projects projects = new Projects();
 		projects.add(project1);

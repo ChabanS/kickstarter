@@ -10,19 +10,23 @@ public class Project {
 	private int exist;
 	private String history;
 	private String demoVideo;
+	private String quenstionAnswers;
 	
 
 
 
 
-public Project(String name, int amount, int days, String description) {
+
+
+public Project(String name, int amount, int days, String description, String demoVideo) {
 	this.name = name;
 	this.amount = amount;
 	this.days = days;
 	this.description = description;
 	this.exist = 0;
 	this.history = null;
-	this.demoVideo = null;
+	this.demoVideo = demoVideo;
+	this.quenstionAnswers = null;
 }
 
 public void setCategory(Category category) {
@@ -31,7 +35,6 @@ public void setCategory(Category category) {
 }
 
 public Category getCategory() {
-	// TODO Auto-generated method stub
 	return category;
 }
 	public String getName() {
@@ -67,9 +70,12 @@ public Category getCategory() {
 	public String getDemoVideo() {
 		return demoVideo;
 	}
-
+	
+	public void setQuenstionAnswers(String quenstionAnswers) {
+		this.quenstionAnswers = quenstionAnswers;
+	}
 	public String getQuenstionAnswers() {
-		return "Вопросы \nОтветы";
+		return quenstionAnswers; //"Вопросы \nОтветы";
 	}
 
 
