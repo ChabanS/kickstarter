@@ -21,7 +21,8 @@ public class KickstarterRunner {
 		project1.setHistory("История первого проектра");
 		project2.setHistory("История проекта второго.....");
 		
-		
+		project1.setDemoVideo("http://inetshop.com.ua");
+		project2.setDemoVideo("http://manuscura.com.ua");
 		
 		Projects projects = new Projects();
 		projects.add(project1);

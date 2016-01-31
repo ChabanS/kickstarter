@@ -9,7 +9,10 @@ public class Project {
 	private String description;
 	private int exist;
 	private String history;
+	private String demoVideo;
 	
+
+
 
 
 public Project(String name, int amount, int days, String description) {
@@ -18,7 +21,8 @@ public Project(String name, int amount, int days, String description) {
 	this.days = days;
 	this.description = description;
 	this.exist = 0;
-	this.history = description;
+	this.history = null;
+	this.demoVideo = null;
 }
 
 public void setCategory(Category category) {
@@ -56,9 +60,12 @@ public Category getCategory() {
 	public String getHistory() {
 		return history;
 	}
-
+	
+	public void setDemoVideo(String demoVideo) {
+		this.demoVideo = demoVideo;
+	}
 	public String getDemoVideo() {
-		return "http://inetshop.com.ua";
+		return demoVideo;
 	}
 
 	public String getQuenstionAnswers() {
