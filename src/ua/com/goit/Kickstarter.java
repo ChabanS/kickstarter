@@ -28,17 +28,25 @@ public class Kickstarter {
 			Project[] foundProgect = projects.getProjects(category);
 			printProjects(foundProgect);
 		
-			while(true){
-				askProject(foundProgect);
-				int projectIndex = selectMenu();
-				Project project = chooseProject(projectIndex, foundProgect);
-				if (project==null){
-					continue;
-				}
-				chooseProject(project);
-				printPojectDetails(project);
-				
+			projectMenu(foundProgect);
+		}
+	}
+
+
+	private void projectMenu(Project[] foundProgect) {
+		while(true){
+			askProject(foundProgect);
+			int projectIndex = selectMenu();
+			if(projectIndex==0){
+				break;
 			}
+			Project project = chooseProject(projectIndex, foundProgect);
+			if (project==null){
+				continue;
+			}
+			chooseProject(project);
+			printPojectDetails(project);
+			
 		}
 	}
 
@@ -57,7 +65,7 @@ public class Kickstarter {
 		System.out.println();
 		int from=1;
 		int to = foundProgect.length;
-		System.out.println("Выберите проект: ["+ from +" - " +to+"]");
+		System.out.println("Выберите проект [от "+ from +" до " +to+"], 0 - Выход из меню");
 	}
 
 	private void printPojectDetails(Project project) {
