@@ -20,7 +20,7 @@ public class Kickstarter {
 			
 			askCategory();
 			int categoryIndex = selectMenu();
-			if (categoryIndex < 0 || categories.getCategories().length<=categoryIndex){
+			if (0 >= categoryIndex   || categories.getCategories().length<=categoryIndex-1){
 				System.out.println("Ќеверный индекс меню " + categoryIndex);
 				continue;
 			}
@@ -31,25 +31,32 @@ public class Kickstarter {
 			while(true){
 				askProject(foundProgect);
 				int projectIndex = selectMenu();
-				if (projectIndex < 0 || foundProgect.length<=projectIndex){
-					System.out.println("Ќеверный индекс меню " + projectIndex);
+				Project project = chooseProject(projectIndex, foundProgect);
+				if (project==null){
 					continue;
 				}
-				Project project= foundProgect[projectIndex];
 				chooseProject(project);
 				printPojectDetails(project);
 				
 			}
-		
 		}
+	}
+
+	private Project chooseProject(int projectIndex, Project[] foundProgect) {
+		// TODO Auto-generated method stub
+		if (0 >= projectIndex   || foundProgect.length<=projectIndex-1){
+			System.out.println("Ќеверный индекс меню " + projectIndex);
+			return null;
+		}
+		return foundProgect[projectIndex-1];
 	}
 
 
 	private void askProject(Project[] foundProgect) {
 		//предлагаем выбрать категорию
 		System.out.println();
-		int from=0;
-		int to = foundProgect.length-1;
+		int from=1;
+		int to = foundProgect.length;
 		System.out.println("¬ыберите проект: ["+ from +" - " +to+"]");
 	}
 
@@ -73,7 +80,7 @@ public class Kickstarter {
 		//выводим список проектов
 		for (int index = 0; index < foundProgect.length; index++){
 			Project project = foundProgect[index];
-			System.out.print(index + " - ");
+			System.out.print((index + 1) + " - ");
 			printProject(project);
 		}
 	}
@@ -102,12 +109,11 @@ public class Kickstarter {
 //			System.out.println("Ќеверный индекс меню " + categoryIndex);
 //			return null;
 //		}
-		Category category=categories.get(categoryIndex);
+		Category category=categories.get(categoryIndex-1);
 		System.out.println("¬ы выбрали категорию "+ category.getName());
 		System.out.println("---------------------------------");
 		return category;
 	}
-
 
 	private int selectMenu() {
 		//спрашиваем какуб категорию надо выбрать
